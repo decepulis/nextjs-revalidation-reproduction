@@ -34,14 +34,14 @@ const getData = cache(async (params: Params) => {
 
 export const revalidate = 604800; // revalidate this page every 604800 seconds
 
-// export const generateStaticParams = async () => {
-//   const allBlogPosts = await client.fetch<BlogPostSlugDocument[]>(slugsQuery);
-//   console.log({ allBlogPosts });
+export const generateStaticParams = async () => {
+  const allBlogPosts = await client.fetch<BlogPostSlugDocument[]>(slugsQuery);
+  console.log({ allBlogPosts });
 
-//   return allBlogPosts.map((post) => ({
-//     params: { post: post.slug.current },
-//   }));
-// };
+  return allBlogPosts.map((post) => ({
+    params: { post: post.slug.current },
+  }));
+};
 
 const BlogPost = async ({ params }: { params: Params }) => {
   const document = await getData(params);
