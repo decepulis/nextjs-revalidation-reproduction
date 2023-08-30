@@ -12,7 +12,7 @@ interface Params {
   post: string;
 }
 
-const getData = cache(async (params: Params) => {
+const getData = async (params: Params) => {
   // Did the user provide parameters? If not, 404
   if (!params?.post || typeof params?.post !== 'string') {
     console.warn('No params provided');
@@ -30,7 +30,7 @@ const getData = cache(async (params: Params) => {
   }
 
   return document;
-});
+};
 
 export const revalidate = 604800; // revalidate this page every 604800 seconds
 

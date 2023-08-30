@@ -3,7 +3,7 @@
 import { createClient } from 'next-sanity';
 import { draftMode } from 'next/headers';
 
-import type { SanityDocument } from '@sanity/client/sanityClient';
+import type { SanityDocument } from '@sanity/client';
 
 import config from './config';
 
