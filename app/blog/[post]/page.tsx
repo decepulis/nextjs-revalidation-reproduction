@@ -19,7 +19,8 @@ const getData = async (params: Params) => {
 
   // Can we find the post? If not, 404
   const { post } = params;
-  const results = await client.fetch<BlogPostDocument[]>(query, { slug: post });
+  const results = await client.fetch<BlogPostDocument[]>(query, { slug: post }, { next: { tags: [`/blog/${post}`] } });
+  console.log({ post, results });
   const data = overlayDrafts(results);
   const document = data?.[0];
   if (!document) {
